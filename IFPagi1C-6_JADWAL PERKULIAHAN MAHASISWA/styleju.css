@@ -1,0 +1,290 @@
+body {
+  margin: 0;
+  padding-top: 80px; /* jarak supaya hero gak ketiban navbar */
+  overflow-x: hidden;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body > header.navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #03254C;
+  padding: 10px 60px 10px 0px;
+  color: #D0EFFF;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000; /* naikin z-index-nya */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 70px;
+  width: 180px;
+  padding-left: 15px;
+}
+
+.nav-text h1 {
+  font-size: 21px;
+  margin: 0;
+  font-weight: 800;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-text p {
+  margin: 0;
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: -5px;
+}
+
+#suggestions {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  z-index: 1000;
+}
+
+#suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #333;
+}
+
+#suggestions li:last-child {
+  border-bottom: none;
+}
+
+#suggestions li:hover:not(:last-child) {
+  background-color: #c6c6c6;
+  color: rgb(0, 0, 0);
+}
+
+#suggestions li.active {
+  background-color: #c6c6c6;
+  color: rgb(0, 0, 0);
+}
+
+.menu-icon {
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 0;
+  font-size: 28px;
+  color: white;
+  margin-left: 20px;
+}
+
+.user-icon {
+  position: relative;
+  width: 65px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.nav-right i {
+  font-size: 26px;
+  color: white;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-right i:hover {
+  color: #FF762F;
+  /* warna oranye */
+  transform: scale(1.1);
+}
+
+.nav-right i:hover {
+  color: #FF762F;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px rgba(255, 118, 47, 0.5);
+}
+
+/* POPUP MENU & USER */
+.popup-menu {
+  position: fixed;
+  top: 70px; /* turun dikit biar gak nempel navbar */
+  right: 70px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  overflow: hidden;
+  z-index: 9999; /* pastiin di bawah navbar */
+}
+
+.popup-user {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.popup-menu ul,
+.popup-user ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-menu li a,
+.popup-user li a {
+  display: block;
+  padding: 12px 20px;
+  color: #002147;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.popup-menu li a:hover,
+.popup-user li a:hover {
+  background-color: #FF762F;
+  color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 128px 40px 40px 40px; /* Center the container */
+    background: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    width: 150px;
+    height: 80px;
+}
+
+h1, p {
+    color: #003366;
+    margin-bottom: 0.5em;
+    margin-left: 40px;
+}
+
+.controls {
+    margin: 1em 0;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.jadwal-table {
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jadwal-table th,
+.jadwal-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.jadwal-table th {
+    background-color: #fdcf03;
+    color: white;
+}
+
+.jadwal-table td {
+    vertical-align: top;
+}
+
+.jadwal-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.jadwal-table tr:hover {
+    background-color: #eaf2f8;
+}
+
+.footer {
+  background-color: #0E2A66;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  background-color: #0E2A66;
+}
+
+.footer-top p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: white;
+  text-align: center;
+  margin: 12px;
+}
+
+.footer-bottom {
+  background-color: #FF762F;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.footer-bottom p {
+  color: #ffffff;
+  text-align: center;
+}

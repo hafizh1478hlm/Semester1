@@ -1,0 +1,592 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #0A3C6B;
+    --text-dark: #333;
+    --text-light: #666;
+    --card-bg: #FFFFFF;
+    --bg-light: #F0F2F5; 
+    --border-color: #E0E0E0;
+    --button-dark: #343A40;
+    --button-hover: #555;
+    --date-active-bg: #2196F3; 
+    --date-active-text: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  padding-top: 80px; /* jarak supaya hero gak ketiban navbar */
+  overflow-x: hidden;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body > header.navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #03254C;
+  padding: 10px 60px 10px 0px;
+  color: #D0EFFF;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000; /* naikin z-index-nya */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 70px;
+  width: 180px;
+  padding-left: 15px;
+}
+
+.nav-text h1 {
+  font-size: 21px;
+  margin: 0;
+  font-weight: 800;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-text p {
+  margin: 0;
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: -5px;
+}
+
+#suggestions {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  z-index: 1000;
+}
+
+#suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #333;
+}
+
+#suggestions li:last-child {
+  border-bottom: none;
+}
+
+#suggestions li:hover:not(:last-child) {
+  background-color: #c6c6c6;
+  color: rgb(0, 0, 0);
+}
+
+#suggestions li.active {
+  background-color: #c6c6c6;
+  color: rgb(0, 0, 0);
+}
+
+.menu-icon {
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 0;
+  font-size: 28px;
+  color: white;
+  margin-left: 20px;
+}
+
+.user-icon {
+  position: relative;
+  width: 65px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.nav-right i {
+  font-size: 26px;
+  color: white;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-right i:hover {
+  color: #FF762F;
+  /* warna oranye */
+  transform: scale(1.1);
+}
+
+.nav-right i:hover {
+  color: #FF762F;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px rgba(255, 118, 47, 0.5);
+}
+
+/* POPUP MENU & USER */
+.popup-menu {
+  position: fixed;
+  top: 70px; /* turun dikit biar gak nempel navbar */
+  right: 70px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  overflow: hidden;
+  z-index: 9999; /* pastiin di bawah navbar */
+}
+
+.popup-user {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.popup-menu ul,
+.popup-user ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-menu li a,
+.popup-user li a {
+  display: block;
+  padding: 12px 20px;
+  color: #002147;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.popup-menu li a:hover,
+.popup-user li a:hover {
+  background-color: #FF762F;
+  color: #fff;
+}
+
+
+/*---Layout Utama --- */
+.container {
+    max-width: 900px;     /* biar ukurannya pas di tengah, nggak lebar banget */
+    margin: 128px 40px 40px 40px;    /* biar center */
+    background-color: #fff; 
+    border-radius: 12px;
+    padding: 30px 40px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, p {
+    color: #003366;
+    margin-bottom: 0.5em;
+    margin-left: 13px;
+}
+
+.page-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px;
+}
+
+/* --- Calendar Styling --- */
+.calendar {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day, .empty {
+  background: white;
+  border-radius: 10px;
+  padding: 15px 0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.day:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.calendar-time {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.day-name {
+    font-weight: 500;
+    color: var(--text-light);
+    padding: 8px 0;
+    font-size: 0.85em;
+}
+
+.calendar-day.active {
+    background-color: var(--date-active-bg);
+    color: var(--date-active-text);
+}
+
+.calendar-day {
+  position: relative; /* penting biar ::after bisa di-posisi-in relatif ke tanggal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* biar kotak tanggal konsisten */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.calendar-day:hover {
+  background-color: rgba(13, 110, 253, 0.1);
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.3);
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.calendar-day.has-schedule::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8px; /* posisikan di bawah angka, tapi masih di dalam kotak */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.calendar-day.has-schedule {
+  position: relative;
+  color: rgb(0, 0, 0); /* biar angka kontras sama warna background */
+  font-weight: 600;
+  z-index: 1;
+}
+
+
+.react-calendar__tile {
+  position: relative;
+  z-index: 0;
+}
+
+.react-calendar__tile--hasActiveJadwal abbr {
+  position: relative;
+  z-index: 2; /* angka tetap di atas */
+}
+
+.react-calendar__tile--hasActiveJadwal::before {
+  content: '';
+  position: absolute;
+  top: 4px; 
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background-color: rgba(255, 99, 132, 0.25); /* warna dot di belakang angka */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+
+
+/* --- Notes Table --- */
+.student-notes h4 {
+    font-size: 1.1em;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.notes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.notes-row {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.notes-row.header-row {
+    background-color: #F8F8F8;
+    font-weight: 600;
+}
+
+.notes-col {
+    flex: 1;
+    padding: 12px 15px;
+    border-right: 1px solid var(--border-color);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.notes-col.catatan {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-width: 177.5px;  /* kamu bisa atur ukurannya */
+}
+
+.notes-col:last-child {
+    border-right: none;
+}
+
+.notes-col.delete-btn {
+  color: red;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.notes-col.delete-btn:hover {
+  transform: scale(1.1);
+}
+
+
+/* --- Pop-up Overlay --- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    display: none; 
+}
+
+.popup-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.popup-content select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background-color: #F9F9F9;
+    cursor: pointer;
+    /* Custom Dropdown Arrow Styling */
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-4.7%2011.3-2.9%2017.7l139.3%20199.3c3.6%205.1%209.1%208%2015.4%208s11.9-2.9%2015.4-8L289.1%2088.6c1.7-6.4.8-12.8-3-17.7z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.popup-content .button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+/* --- Button Styling --- */
+.popup-content button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+#kirimJadwal {
+    background-color: var(--button-dark);
+    color: white;
+}
+
+#batalJadwal {
+    background-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+.popup-content.small-popup {
+    max-width: 550px; 
+    padding: 25px;
+}
+
+/* --- Inline Editing Styles --- */
+
+/* Gaya saat elemen di halaman utama fokus (Catatan di bawah Kalender) */
+.student-notes .notes-table .notes-col[contenteditable="true"]:focus {
+    background-color: #FFFFE0; 
+    outline: 1px solid var(--primary-blue);
+    cursor: text;
+}
+
+/* Tombol Simpan Catatan di Halaman Utama */
+.main-save-action {
+    text-align: right;
+    margin-top: 15px;
+}
+
+#saveMainNotes {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+/* Gaya saat elemen di dalam pop-up fokus (Gambar 4) */
+.popup-overlay .notes-table .notes-col[contenteditable="true"]:focus {
+    background-color: #FFFFAA; 
+    outline: 2px solid var(--primary-blue);
+    cursor: text;
+}
+
+/* Tombol Aksi di Pop-up Catatan Mahasiswa (Gambar 4) */
+.edit-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+
+.action-button.primary {
+    background-color: #28A745; 
+    color: white;
+}
+
+.action-button.secondary {
+    background-color: #DC3545; 
+    color: white;
+}
+
+.close-popup {
+    margin-top: 20px;
+    background-color: var(--button-dark);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+}
+
+.footer {
+  background-color: #0E2A66;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  background-color: #0E2A66;
+}
+
+.footer-top p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: white;
+  text-align: center;
+  margin: 12px;
+}
+
+.footer-bottom {
+  background-color: #FF762F;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.footer-bottom p {
+  color: #ffffff;
+  text-align: center;
+}
+
